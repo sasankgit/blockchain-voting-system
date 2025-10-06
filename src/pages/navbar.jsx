@@ -5,6 +5,7 @@ function Navbar(){
             <ul className="flex gap-6">
                 <li><a href ="home" >Home page here</a></li>
                 <li><a href = "testpage">testpageishere</a></li>
+                <li><a href = "addcandidate"> add candidate</a></li>
             </ul>
         </nav>
     );
