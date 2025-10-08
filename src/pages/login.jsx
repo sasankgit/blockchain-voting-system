@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 
-function Loginpage(){
+function Loginpage({onLogin}){
     const [username,setusername] = useState("");
     const [password,setPassword] = useState("");
     const [error,seterror] = useState("");
@@ -14,13 +14,15 @@ function Loginpage(){
         if(username == "user" && password == "user1234"){
             localStorage.setItem("isLoggedIn","true");
             localStorage.setItem("user",JSON.stringify({username}));
-            window.location.href = "/home";
+            
             console.log("valid");
+            onLogin && onLogin();
 
         }
         else{
             seterror("Invalid username or password");
-            console.log("invalid")
+            console.log("invalid");
+            alert("invalid credential");
         }
     };
 
@@ -37,7 +39,7 @@ function Loginpage(){
                     className="pt-4 bg-green-200 fixed left-45 text-black"
                     value={username}
                     onChange = {(e) => setusername(e.target.value)}
-                    ></input>
+                    />
 
                 </div>
                 <div  >
