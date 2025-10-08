@@ -1,4 +1,6 @@
 
+import React, {useState} from 'react';
+
 import Home from './pages/home.jsx'
 import Navbar from './pages/navbar.jsx'
 import Basic from './pages/testpage.jsx'
@@ -12,13 +14,15 @@ import{BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import './App.css'
 
 function App() {
+  const[isAuthenticated,setIsAuthenticated] = useState(false);
 
   return (
     <div>
-      <Loginpage/>
+      {!isAuthenticated &&<Loginpage onLogin = {() => setIsAuthenticated(true)} />}
+      
       
       <Router>
-        <Navbar/>
+        {isAuthenticated && <Navbar/>}
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/home" element={<Home/>} />
@@ -34,4 +38,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
