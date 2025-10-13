@@ -1,6 +1,7 @@
 
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Createuser(){
     
@@ -64,6 +65,7 @@ function Loginpage({onLogin}){
 
 
             </form>
+            <Link to = "/signup">signup page</Link>
         </div>
     );
 }
