@@ -1,4 +1,5 @@
 
+
 import React, {useState} from 'react';
 
 import Home from './pages/home.jsx'
@@ -12,7 +13,9 @@ import Signup from './pages/signup.jsx'
 
 import{BrowserRouter as Router,Routes,Route} from "react-router-dom";
 
-import './App.css'
+import "./App.css"
+
+
 
 function App() {
   const[isAuthenticated,setIsAuthenticated] = useState(false);
@@ -20,22 +23,18 @@ function App() {
   return (
     <div>
       
-      {!isAuthenticated ? (<Loginpage onLogin = {() => setIsAuthenticated(true)} />
-        
-        
-        
-      ) : (
+
       
       <Router>
         <Navbar/>
         <Routes>
           <Route path="/" element={<Signup/>}/>
-          <Route path="/home" element={<Home/>} />
-          <Route path="/testpage" element={<Basic/>}/>
-          <Route path="/addcandidate" element={<Candidate/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/login" element ={<Loginpage/>}/>
+
         </Routes>
       </Router>
-      )}  
+        
       
       
     </div>
