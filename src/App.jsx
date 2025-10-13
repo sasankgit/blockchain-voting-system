@@ -6,6 +6,7 @@ import Navbar from './pages/navbar.jsx'
 import Basic from './pages/testpage.jsx'
 import Candidate from './pages/addcandidate.jsx'
 import Loginpage from './pages/login.jsx'
+import Signup from './pages/signup.jsx'
 
 
 
@@ -18,18 +19,23 @@ function App() {
 
   return (
     <div>
-      {!isAuthenticated &&<Loginpage onLogin = {() => setIsAuthenticated(true)} />}
       
+      {!isAuthenticated ? (<Loginpage onLogin = {() => setIsAuthenticated(true)} />
+        
+        
+        
+      ) : (
       
       <Router>
-        {isAuthenticated && <Navbar/>}
+        <Navbar/>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Signup/>}/>
           <Route path="/home" element={<Home/>} />
           <Route path="/testpage" element={<Basic/>}/>
           <Route path="/addcandidate" element={<Candidate/>}/>
         </Routes>
-      </Router>  
+      </Router>
+      )}  
       
       
     </div>
