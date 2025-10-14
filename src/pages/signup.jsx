@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 function Signup(){
     const [username,setUsername] = useState()
     const [password,setPassword] = useState()
+    const [confirmpassword,setConfirmpassword] = useState()
 
 
     return(
@@ -33,9 +34,11 @@ function Signup(){
                <input
                type = "password"
                placeholder="enter password"
+               onChange={(e) => setConfirmpassword(e.target.value)}
                />
+               </div>
 
-               </div>     
+                  
                 
             </form>
             <Link to ="/login" className="text-black ">login page redirect</Link>
