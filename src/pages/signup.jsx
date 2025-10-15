@@ -13,7 +13,7 @@ function Signup(){
         e.preventDefault()
         if(password == confirmpassword){
           console.log("hello uwu same")
-          axios.post('' , { username,email,password})
+          axios.post('http://localhost:5173/' , { username,email,password})
           .then(result => console.log(result))
           .catch(err => console.log(err))
         } 
