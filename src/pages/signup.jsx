@@ -14,6 +14,8 @@ function Signup(){
         if(password == confirmpassword){
           console.log("hello uwu same")
           axios.post('' , { username,email,password})
+          .then(result => console.log(result))
+          .catch(err => console.log(err))
         } 
         else{
             console.log("hello uwu different")
