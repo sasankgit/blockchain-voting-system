@@ -19,7 +19,7 @@ function Loginpage({onLogin}){
         axios.post('http://localhost:3001/login', {username,password})
         .then(result =>{
             console.log("the login is searched" + result.data)
-            if(result.data === "Success"){
+            if(result.data === "success"){
                 sasankdirect("/home")
             }
             else{
