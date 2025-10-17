@@ -10,6 +10,25 @@ app.use(cors())
 
 mongoose.connect("mongodb://127.0.0.1:27017/for-me");
 
+app.post('/login' , (req,res) =>{
+    const {username,password} = req.body
+    ConsumerModel.findOne({username : username})
+    .then(user =>{
+        if(user){
+            if(user.password === password){
+                res.json({status:"success", message : "the login succesful 1st parse"} )
+            }
+            else{
+                res.json({status: "unsuccesful " , message: "the password didnt match"})
+            }
+        }
+        else{
+            res.json({status:"nouser found" , message : "the user is non exitent"})
+        }
+    })
+    .catch(err => res.status(500).json(err))
+})
+
 app.post('/signup',(req,res) => {
     ConsumerModel.create(req.body)
     .then(Consumers => res.json(Consumer))
