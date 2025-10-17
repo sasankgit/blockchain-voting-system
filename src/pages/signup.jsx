@@ -1,20 +1,24 @@
 
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import {Link , useNavigate} from "react-router-dom";
 import axios from 'axios'
+
 
 function Signup(){
     const [username,setUsername] = useState()
     const [email,setEmail] = useState()
     const [password,setPassword] = useState()
     const [confirmpassword,setConfirmpassword] = useState()
+    const sasanksends = useNavigate()
     
     const handleSubmit = (e) => {
         e.preventDefault()
         if(password == confirmpassword){
           console.log("hello uwu same")
           axios.post('http://localhost:3001/signup' , { username,email,password})
-          .then(result => console.log(result))
+          .then(result => {console.log(result)
+           sasanksends('/login')
+          })
           .catch(err => console.log(err))
         } 
         else{
@@ -40,7 +44,7 @@ function Signup(){
                 type = "text"
                 placeholder="enter username"
                 className="text-amber-950 text-medium "
-                onChange={(e) => SetEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 />
                </div>
                <div className="text-lg p-4">
