@@ -16,14 +16,14 @@ app.post('/login' , (req,res) =>{
     .then(user =>{
         if(user){
             if(user.password === password){
-                res.json({status:"success", message : "the login succesful 1st parse"} )
+                res.json("success")
             }
             else{
-                res.json({status: "unsuccesful " , message: "the password didnt match"})
+                res.json("did not match password")
             }
         }
         else{
-            res.json({status:"nouser found" , message : "the user is non exitent"})
+            res.json("user not found at all ehe")
         }
     })
     .catch(err => res.status(500).json(err))
