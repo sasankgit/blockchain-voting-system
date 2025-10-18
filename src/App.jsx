@@ -8,7 +8,8 @@ import Basic from './pages/testpage.jsx'
 import Candidate from './pages/addcandidate.jsx'
 import Loginpage from './pages/login.jsx'
 import Signup from './pages/signup.jsx'
-import Redirect from './pages/decisionpage.jsx';
+import Redirect from './pages/decisionpage.jsx'
+import UserVotingPage from './pages/voterpage.jsx'
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element ={<Loginpage/>}/>
           <Route path="/home" element ={<Home/>}/>
+          <Route path="/voterpage" element={<UserVotingPage/>}/>
         </Routes>
       </Router>
         
