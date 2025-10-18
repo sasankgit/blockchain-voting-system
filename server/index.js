@@ -2,7 +2,7 @@ const express = require("express")
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-const ConsumerModel = require('./models/Consumers.js')
+const ConsumerModel = require('./models/consumers.js')
 
 const app = express()
 app.use(express.json())
