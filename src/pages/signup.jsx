@@ -15,7 +15,7 @@ function Signup(){
         e.preventDefault()
         if(password == confirmpassword){
           console.log("hello uwu same")
-          axios.post('http://localhost:3001/signup' , { username,email,password})
+          axios.post(`${import.meta.env.VITE_CONNECTION}/signup`, { username,email,password})
           .then(result => {console.log(result)
            sasanksends('/login')
           })

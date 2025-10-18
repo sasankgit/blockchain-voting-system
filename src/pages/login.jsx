@@ -16,7 +16,7 @@ function Loginpage({onLogin}){
     const handlelogin = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3001/login', {username,password})
+        axios.post(`${import.meta.env.VITE_CONNECTION}/login`, {username,password})
         .then(result =>{
             console.log("the login is searched" + result.data)
             if(result.data === "success"){
