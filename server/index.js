@@ -7,7 +7,8 @@ const ConsumerModel = require('./models/consumers.js')
 const app = express()
 app.use(express.json())
 app.use(cors({
-    origin: process.env.FRONTEND_URL
+  origin: process.env.FRONTEND_URL || "*", // fallback for testing
+  methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
 mongoose.connect("mongodb://127.0.0.1:27017/for-me");
