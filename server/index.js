@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express")
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -11,7 +13,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
-mongoose.connect("mongodb://127.0.0.1:27017/for-me");
+mongoose.connect(process.env.MONGO_STRING);
 
 app.post('/login' , (req,res) =>{
     const {username,password} = req.body
