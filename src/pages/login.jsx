@@ -19,7 +19,7 @@ function Loginpage({onLogin}){
         axios.post(`${import.meta.env.VITE_CONNECTION}/login`, {username,password})
         .then(result =>{
             console.log("the login is searched" + result.data)
-            if(result.data === "success"){
+            if(result.data.status === "success"){
                 sasankdirect("/home")
             }
             else{
